@@ -1,0 +1,28 @@
+.inputField {
+  input {
+    padding: 15px;
+    width: 100%;
+    border: none;
+    outline: 1px solid lightgray;
+    &:focus {
+      outline: 1px solid grey;
+    }
+    &:valid {
+      outline: 1px solid lightgreen;
+    }
+    &:invalid[focused=true] {
+      outline: 1px solid red;
+    }
+    &:invalid[focused=true] ~ span {
+      display: block;
+    }
+  }
+  span {
+    font-size: 12px;
+    color: red;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 3px 0 0 0;
+    display: none;
+  }
+}

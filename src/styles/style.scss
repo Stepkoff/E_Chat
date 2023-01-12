@@ -1,0 +1,360 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+body, html {
+  font-family: Roboto, sans-serif;
+}
+.formContainer {
+  background-color: $main_bg;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .formWrapper {
+    background-color: $bg_light;
+    padding: 20px 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+      color: $btn_bg;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 350px;
+      button {
+        background-color: $btn_bg ;
+        border: none;
+        border-radius: 5px;
+        color: $text;
+        font-weight: bold;
+        padding: 10px;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: $text;
+        cursor: pointer;
+        img {
+          width: 32px;
+        }
+      }
+    }
+    p {
+      color: $text;
+      font-size: 14px;
+    }
+    .logo {
+      color: $text;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .title {
+      font-size: 18px;
+      color: $text;
+      margin-bottom: 10px;
+    }
+  }
+}
+.home {
+  background-color: $main_bg;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    border-radius: 10px;
+    max-width: 900px;
+    min-height: 400px;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+    .sidebar {
+      flex: 1;
+      background-color: $bg_light;
+      .navbar {
+        display: flex;
+        align-items: center;
+        background-color: $bg_light;
+        height: 50px;
+        padding: 10px;
+        justify-content: space-between;
+        color: #ddddf7;
+        .logo {
+          font-weight: bold;
+          @include tablet {
+            display: none;
+          }
+        }
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          .user__info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          @include tablet {
+            width: 100%;
+          }
+          img {
+            background-color: #ddddf7;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          button {
+            @include tablet {
+              margin-left: auto;
+            }
+            background-color: $btn_bg;
+            color: $text;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+          }
+        }
+      }
+    }
+    .search {
+      border-top: 1px solid #3d3c3c;
+      border-bottom: 1px solid #3d3c3c;
+      .searchForm {
+        padding: 10px;
+        input {
+          width: 100%;
+          background-color: transparent;
+          border: none;
+          color: $text;
+          outline: none;
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+      }
+    }
+    .userChat {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: $text;
+      cursor: pointer;
+      &:hover {
+        background-color: $side_hover;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .userChatInfo {
+        span {
+          display: inline-block;
+          font-weight: bold;
+          font-size: 18px;
+        }
+        p {
+          font-size: 14px;
+          color: grey;
+        }
+      }
+    }
+    .chat {
+      flex: 2;
+      .chatInfo {
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $bg_light;
+        padding: 10px;
+        color: lightgray;
+        .chatIcons {
+          display: flex;
+          gap: 10px;
+          img {
+            height: 24px;
+            cursor: pointer;
+          }
+        }
+      }
+      .messages {
+        background-color: $bg_dark;
+        padding: 10px;
+        height: calc(100% - 100px);
+        overflow: auto;
+        &::-webkit-scrollbar {
+          width: 7px;
+        }
+        &::-webkit-scrollbar-track {
+          background: $scrollBar_bg;
+          border-radius: 5px;
+        }
+        &::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background: $scrollBar_thumb;
+        }
+        .message {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 20px;
+          .messageInfo {
+            display: flex;
+            flex-direction: column;
+            color: gray;
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+          .messageContent {
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            p {
+              span.time {
+                font-size: 10px;
+                display: inline-block;
+                color: grey;
+                padding-top: 3px;
+                width: 100%;
+                text-align: right;
+              }
+              span {
+                color: $text;
+              }
+              span ~ img {
+                margin: 15px 0 0 0;
+              }
+              background-color: $message_partner_br;
+              padding: 10px;
+              border-radius: 0 10px 10px 10px;
+              width: fit-content;
+              block-size: fit-content;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              img{
+                display: inline-block;
+                width: 200px;
+              }
+            }
+
+          }
+          &.owner {
+            display: flex;
+            flex-direction: row-reverse;
+            .messageContent{
+              align-items: flex-end;
+              p{
+                border-radius: 10px 0 10px 10px;
+                background-color: $message_owner_bg;
+                color: $text;
+                align-items: flex-end;
+              }
+            }
+          }
+        }
+      }
+      .chatInput {
+        height: 50px;
+        background-color: $bg_light;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        >input {
+          background-color: transparent;
+          border: none;
+          outline: none;
+          width: 100%;
+          color: $text;
+          font-size: 18px;
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+        .send {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          img {
+            height: 24px;
+            cursor: pointer;
+          }
+          button {
+            border: none;
+            padding: 10px 15px;
+            color: $text;
+            background-color: $btn_bg;
+          }
+        }
+      }
+    }
+  }
+}
+.inputField {
+  input {
+    background-color: white;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: 1px solid lightgray;
+  }
+}
+.displayName{
+  display: inline-block;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+.userProfileInfo {
+  padding: 10px;
+  &__title {
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 0;
+    &:first-letter{
+      text-transform: uppercase;
+    }
+  }
+  &__text {
+    text-align: center;
+    padding: 10px 0;
+  }
+  &__imageContainer {
+    position: relative;
+    > img {
+      border-radius: 50%;
+      object-fit: cover;
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
